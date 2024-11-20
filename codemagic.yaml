@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       vars:
-        GRADLEW_PATH: "./gradlew"  # Gradle Wrapper 路径
+        GRADLEW_PATH: "./app/gradlew"  # Gradle Wrapper 路径
     scripts:
       - echo "Starting build process..."
       - $GRADLEW_PATH clean         # 清理项目
