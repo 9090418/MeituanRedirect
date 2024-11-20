@@ -1,13 +1,12 @@
 workflows:
   android-workflow:
     name: Build Android APK
-    max_build_duration: 60
     environment:
       vars:
-        GRADLEW_PATH: "./app/gradlew"  # Gradle Wrapper 路径
+        GRADLEW_PATH: "./gradlew"
     scripts:
       - echo "Starting build process..."
       - $GRADLEW_PATH clean         # 清理项目
-      - $GRADLEW_PATH assembleDebug # 构建 Debug APK
+      - $GRADLEW_PATH assembleRelease # 构建 Release 版本 APK
     artifacts:
       - build/**/outputs/**/*.apk   # 保存生成的 APK 文件
