@@ -1,0 +1,17 @@
+workflows:
+  android-workflow:
+    name: Build Android APK
+    max_build_duration: 60
+    environment:
+      vars:
+        GRADLEW_PATH: "./gradlew" # Gradle wrapper path
+      android:
+        build_tools_version: "33.0.0"   # Android build tools version
+        compile_sdk_version: "33"      # Android compile SDK version
+        ndk_version: "23.1.7779620"    # Optional: NDK version if required
+    scripts:
+      - echo "Setting up the build environment..."
+      - $GRADLEW_PATH clean             # Clean the project
+      - $GRADLEW_PATH assembleDebug     # Build debug APK
+    artifacts:
+      - build/**/outputs/**/*.apk       # Collect the generated APK
